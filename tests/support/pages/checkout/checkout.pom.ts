@@ -22,9 +22,10 @@ export abstract class CheckoutPage extends GlobalPage {
         const productQtyInCart = productNameInCart.locator('+label')
         const productColorInCart = productQtyInCart.locator('+label')
 
-        await expect(productNameInCart).toBeVisible()
-        await expect(productQtyInCart).toContainText("QTY: 1")
-        await expect(productColorInCart).toContainText(`Color: ${product.color.toUpperCase()}`)
-        await expect(this.cartTotalPrice).toContainText(product.price.toString())
+        await expect(productNameInCart, 'Validando a exibição correta do nome do produto.').toBeVisible()
+        // TODO: implementar uma validação dinâmica. 
+        await expect(productQtyInCart, 'Validando a exibição correta da quantidade de produtos adicionada.').toContainText("QTY: 1")
+        await expect(productColorInCart, 'Validando a cor escolhida do produto.').toContainText(`Color: ${product.color.toUpperCase()}`)
+        await expect(this.cartTotalPrice, 'Validando o preço total da compra.').toContainText(product.price.toString())
     }
 }

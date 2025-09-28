@@ -24,11 +24,11 @@ export abstract class ProductDetailsPage extends GlobalPage {
 
     async verifyProductPageTitle(title: string): Promise<void> {
         const pageTitle = await this.descriptionTitle.textContent()
-        expect(pageTitle?.trim().toLowerCase()).toBe(title.toLowerCase())
+        expect(pageTitle?.trim().toLowerCase(), 'Validando se o nome do produto está correto na página de detalhe.').toBe(title.toLowerCase())
     }
 
     async verifyProductPrice(price: string): Promise<void> {
-        expect(await this.descriptionPrice.textContent()).toContain(price)
+        expect(await this.descriptionPrice.textContent(), 'Validando se o preço do produto está correto na página de detalhe.').toContain(price)
     }
 
     async verifyProdcutPrincipalInformation(product: Product): Promise<void> {

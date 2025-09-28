@@ -18,7 +18,7 @@ export class HomePage extends GlobalPage {
 
     async verifyproductsCategoryVisibility(): Promise<void> {
         const numberOfCategories = Object.keys(HomeProductCategory).length
-        await expect(this.productsCategory).toHaveCount(numberOfCategories)
+        await expect(this.productsCategory, `Validando se a quantidade de categorias de produtos na página inicial é igual a ${numberOfCategories}.`).toHaveCount(numberOfCategories)
     }
 
     private async navigateToProductCategory(category: HomeProductCategory): Promise<void> {
@@ -35,14 +35,17 @@ export class HomePage extends GlobalPage {
         await this.navigateToProductCategory(HomeProductCategory.Tablets)
     }
 
+    // TODO: Implementar navegação para as outras categorias de produtos
     async navigateToHeadphonesCategory(): Promise<void> {
         await this.navigateToProductCategory(HomeProductCategory.Headphones)
     }
 
+    // TODO: Implementar navegação para as outras categorias de produtos
     async navigateToLaptopsCategory(): Promise<void> {
         await this.navigateToProductCategory(HomeProductCategory.Laptops)
     }
 
+    // TODO: Implementar navegação para as outras categorias de produtos
     async navigateToMiceCategory(): Promise<void> {
         await this.navigateToProductCategory(HomeProductCategory.Mice)
     }

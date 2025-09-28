@@ -24,7 +24,7 @@ export abstract class GlobalPage {
     }
 
     async verifyTabPageTitle(): Promise<void> {
-        await expect(this.page).toHaveTitle(new RegExp(this.tabPageTitle, 'i'))
+        await expect(this.page, 'Validando o título na aba do navegador.').toHaveTitle(new RegExp(this.tabPageTitle, 'i'))
     }
 
     async logoClick(): Promise<void> {
@@ -35,12 +35,12 @@ export abstract class GlobalPage {
         await this.userMenu.click()
     }
 
-    async openSearchInput() : Promise<void> {
+    async openSearchInput(): Promise<void> {
         await this.searchButton.click()
         await expect(this.searchInput).toBeVisible()
     }
 
-    async closeSearchInput() : Promise<void> {
+    async closeSearchInput(): Promise<void> {
         await this.searchInputCloseButton.click()
         await this.page.waitForFunction(
             (element) => element?.clientWidth === 0,
@@ -48,18 +48,18 @@ export abstract class GlobalPage {
         )
         await expect(this.SearchInputWrapper).toHaveCSS('width', '0px')
     }
-    
-    async searchForProduct(name: string) : Promise<void> {
+
+    async searchForProduct(name: string): Promise<void> {
         await this.openSearchInput()
         await this.searchInput.fill(name)
         await this.searchButton.click()
     }
 
     async verifyCartCounter(count: number): Promise<void> {
-        await expect(this.cartCounter).toContainText(count.toString())
+        await expect(this.cartCounter, `Validando se a quantidade de produtos no carrinho é igual a ${count}.`).toContainText(count.toString())
     }
 
     verifyUserLoggedIn(username: string): Promise<void> {
-        return expect(this.usernameDisplay).toHaveText(username)
+        return expect(this.usernameDisplay, `Validando se o username exibido é igual a ${username}.`).toHaveText(username)
     }
 }

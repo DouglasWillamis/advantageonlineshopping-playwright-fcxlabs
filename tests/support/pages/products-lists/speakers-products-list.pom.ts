@@ -12,7 +12,7 @@ export class SpeakersProductsPage extends ProductsListPage {
     }
 
     async verifySpeakersPageTitle(): Promise<void> {
-        await expect(this.pageTitle, 'Título da página SPEAKERS não está visível').toBeVisible();
+        await expect(this.pageTitle, 'Validando o título da página de lista de produtos de sons.').toBeVisible();
     }
 
     async verifyProductInList (product: SpeakerProduct): Promise<Locator> {
@@ -21,14 +21,14 @@ export class SpeakersProductsPage extends ProductsListPage {
         // TODO: Melhorar seletor para buscar o preço do produto específico
         const productPriceElement = this.productsList.getByText(price.toString());
 
-        await expect(productNameElement).toBeVisible();
-        await expect(productPriceElement).toBeVisible();
+        await expect(productNameElement, 'Validando a visibilidade do produto na lista pelo nome.').toBeVisible();
+        await expect(productPriceElement, 'Validando a visibilidade do produto na lista pelo preço.').toBeVisible();
 
         const nameText = (await productNameElement.textContent())?.toLowerCase();
-        expect(nameText).toBe(name.toLowerCase());
+        expect(nameText, 'Comparando o valor do nome do produto no site com o da massa de teste.').toBe(name.toLowerCase());
 
         const priceText = await productPriceElement.textContent();
-        expect(priceText).toContain(`${price}`);
+        expect(priceText, 'Comparando o valor do preço do produto no site com o da massa de teste.').toContain(`${price}`);
 
         return productNameElement;
     }

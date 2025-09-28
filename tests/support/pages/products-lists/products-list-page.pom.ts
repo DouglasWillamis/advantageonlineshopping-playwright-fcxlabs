@@ -15,7 +15,7 @@ export abstract class ProductsListPage extends GlobalPage {
     }
 
     async verifyTotalProducts(count: number): Promise<void> {
-        expect(await this.productsCount.textContent()).toContain(`${count} ITEMS`)
+        expect(await this.productsCount.textContent(), 'Validando o total de itens na lista de produtos.').toContain(`${count} ITEMS`)
     }
 
     abstract goToProductDetails(product: Product): Promise<ProductDetailsPage>;

@@ -26,13 +26,13 @@ export class CheckoutLoggedInPage extends CheckoutPage {
     }
 
     async verifyShippingDetails(user: User): Promise<void> {
-        await expect(this.shippingDetailsSection.getByText(`${user.firstName} ${user.lastName}`)).toBeVisible()
-        await expect(this.shippingDetailsSection.getByText(user.address)).toBeVisible()
-        await expect(this.shippingDetailsSection.getByText(user.city)).toBeVisible()
-        await expect(this.shippingDetailsSection.getByText(user.state)).toBeVisible()
-        await expect(this.shippingDetailsSection.getByText(user.postalCode)).toBeVisible()
-        await expect(this.shippingDetailsSection.getByText(user.country)).toBeVisible()
-        await expect(this.shippingDetailsSection.getByText(user.phoneNumber)).toBeVisible()
+        await expect(this.shippingDetailsSection.getByText(`${user.firstName} ${user.lastName}`), 'Validando a exibição do nome do usuário nos detalhes de entrega.').toBeVisible()
+        await expect(this.shippingDetailsSection.getByText(user.address), 'Validando a exibição do endereço do usuário nos detalhes de entrega.').toBeVisible()
+        await expect(this.shippingDetailsSection.getByText(user.city), 'Validando a exibição da cidade do usuário nos detalhes de entrega.').toBeVisible()
+        await expect(this.shippingDetailsSection.getByText(user.state), 'Validando a exibição do estado do usuário nos detalhes de entrega.').toBeVisible()
+        await expect(this.shippingDetailsSection.getByText(user.postalCode), 'Validando a exibição do CEP do usuário nos detalhes de entrega.').toBeVisible()
+        await expect(this.shippingDetailsSection.getByText(user.country), 'Validando a exibição do país do usuário nos detalhes de entrega.').toBeVisible()
+        await expect(this.shippingDetailsSection.getByText(user.phoneNumber), 'Validando a exibição do telefone do usuário nos detalhes de entrega.').toBeVisible()
     }
 
     async fillPaymentDetailsAndSubmitOrder(user: User): Promise<void> {
@@ -42,6 +42,6 @@ export class CheckoutLoggedInPage extends CheckoutPage {
         await this.creditCardSecurityCodeInput.fill(user.creditCardSecurityCode)
         await this.creditCardHolderNameInput.fill(user.creditCardHolderName)
         await this.payOrderButton.click()
-        await expect(this.sucessOrderMessage, 'validando se comprar foi um sucesso').toBeVisible()
+        await expect(this.sucessOrderMessage, 'Validando se a compra foi realizada com sucesso.').toBeVisible()
     }
 }

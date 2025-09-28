@@ -8,10 +8,10 @@ export class SpeakerProductDetailsPage extends ProductDetailsPage {
     }
 
     async verifyProductSpecifications(product: SpeakerProduct): Promise<void> {
-        await expect(this.productEspecifications.getByText(product.compatibility)).toBeVisible()
-        await expect(this.productEspecifications.getByText(product.connector)).toBeVisible()
-        await expect(this.productEspecifications.getByText(product.manufacturer)).toBeVisible()
-        await expect(this.productEspecifications.getByText(product.weight)).toBeVisible()
-        await expect(this.productEspecifications.getByText(product.wirelessTechnology)).toBeVisible()
+        await expect(this.productEspecifications.getByText(product.compatibility), 'Validando a especificação de compatibilidade.').toBeVisible()
+        await expect(this.productEspecifications.getByText(product.connector), 'Validando as especificações do conector.').toBeVisible()
+        await expect(this.productEspecifications.getByText(product.manufacturer), 'Validando o fabricante.').toBeVisible()
+        await expect(this.productEspecifications.getByText(product.weight), 'Validando o peso.').toBeVisible()
+        await expect(this.productEspecifications.getByText(product.wirelessTechnology), 'Validando a especificação da tecnologia sem fio.').toBeVisible()
     }
 }
