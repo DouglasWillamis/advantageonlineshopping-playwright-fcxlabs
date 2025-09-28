@@ -1,0 +1,26 @@
+{
+  "name": "advantageonlineshopping-fcxlabs",
+  "version": "1.0.0",
+  "description": "Automação de testes end-to-end para o site Advantage Online Shopping utilizando Playwright.",
+  "scripts": {
+    "test:technicalchallenge": "npx playwright test --grep @buyorder"
+  },
+  "keywords": [
+    "playwright",
+    "automação",
+    "testes",
+    "e2e",
+    "advantageonlineshopping",
+    "fcxlabs",
+    "selenium",
+    "web",
+    "nodejs"
+  ],
+  "author": "Douglas Santana",
+  "license": "MIT",
+  "devDependencies": {
+    "@faker-js/faker": "^10.0.0",
+    "@playwright/test": "^1.55.1",
+    "@types/node": "^24.5.2"
+  }
+}
