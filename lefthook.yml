@@ -1,0 +1,10 @@
+# lefthook.yml
+pre-commit:
+  commands:
+    biome-check:
+      glob: "*.{js, ts}"
+      run: npx @biomejs/biome check --no-errors-on-unmatched --files-ignore-unknown=true --colors=off {staged_files}
+    biome-format-and-fix:
+      glob: "*.{js,ts}"
+      run: npx @biomejs/biome check --write --no-errors-on-unmatched --files-ignore-unknown=true --colors=off {staged_files}
+      stage_fixed: true

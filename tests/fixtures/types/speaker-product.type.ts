@@ -1,9 +1,9 @@
-import { Product } from "./product.type"
+import type { Product } from "./product.type";
 
-export type SpeakerProduct = Product &{
-    compatibility: string
-    connector: string
-    manufacturer: string
-    weight: string
-    wirelessTechnology: string
-}
+export type SpeakerProduct = Product & {
+  compatibility: string;
+  connector: string;
+  manufacturer: string;
+  weight: string;
+  wirelessTechnology: string;
+};
