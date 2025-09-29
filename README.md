@@ -19,7 +19,7 @@ Este projeto contém testes automatizados end-to-end para o site [Advantage Onli
 
 1. Clone o repositório:
    ```sh
-   git clone <url-do-repositorio>
+   git clone https://github.com/DouglasWillamis/advantageonlineshopping-playwright-fcxlabs.git
    cd advantageonlineshopping-playwright-fcxlabs
    ```
 
