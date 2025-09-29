@@ -39,7 +39,7 @@ test.describe('Checkout Logged In', () => {
   })
 
 
-  test(`Order ${speakerProduct.name.toLowerCase()}`, {tag: '@buyorder'}, async () => {
+  test(`Order ${speakerProduct.name.toLowerCase()}`, {tag: '@smoke'}, async () => {
     await test.step('Preenchendo os dados para criação de usuário.', async () => {
       checkoutLoggedInPage = await createAccountPage.fillFormAndSubmitAndGoToCheckoutLoggedIn(user)
     })

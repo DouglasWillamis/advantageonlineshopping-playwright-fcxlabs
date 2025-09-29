@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Automação de testes end-to-end para o site Advantage Online Shopping utilizando Playwright.",
   "scripts": {
-    "test:technicalchallenge": "npx playwright test --grep @buyorder"
+    "test:technicalchallenge": "npx playwright test --grep @smoke"
   },
   "keywords": [
     "playwright",
